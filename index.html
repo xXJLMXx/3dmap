@@ -23,8 +23,8 @@
         const container = document.getElementById( 'container' );
 
         // Define API Keys (replace these with your own!)
-        const NASADEM_APIKEY = null;
-        const MAPTILER_APIKEY = null;
+        const NASADEM_APIKEY = '1f11dbce025744eda8b9aadd99c07d131';
+        const MAPTILER_APIKEY = 'BheLBu5XbQXIoBFzohw6';
         if ( !NASADEM_APIKEY || !MAPTILER_APIKEY ) {
           const error = Error( 'Modify index.html to include API keys' );
           container.innerHTML = error; 
@@ -33,7 +33,7 @@
 
         const datasource = {
           elevation: {
-            apiKey: 1f11dbce025744eda8b9aadd99c07d131
+            apiKey: NASADEM_APIKEY
           },
           imagery: {
             apiKey: MAPTILER_APIKEY,
