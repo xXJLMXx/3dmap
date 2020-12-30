@@ -2,57 +2,44 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
-        <title>Procedural GL JS</title>
+        <title>New Zealand 3D</title>
         <meta name="viewport" content="user-scalable=no, width=device-width, height=device-height, maximum-scale=1.0, minimum-scale=1.0, initial-scale=1.0">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@7.2.0/dist/css/autoComplete.min.css">
-        <style>
-            html, body {
-                margin: 0;
-            }
-        </style>
+        <link rel="stylesheet" href="main.css">
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
     </head>
 
     <body>
-        <div style="position: absolute; width: 100%; height: 100%;" id="container">
+        <h1 id="title"></h1>
+        <h2 id="subtitle">NEW ZEALAND</h2>
+        <div style="position: absolute; width: 100%; height: 100%;" id="container"></div>
+        <div id="park-list-overlay">
+            <!-- <a href="https://github.com/felixpalmer/new-zealand-3d/">
+                <img style="position: absolute; top: 0; left: 0; border: 0; z-index: 10000" src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png" alt="Fork me on GitHub">
+            </a> -->
+            <h2>PARKS OF NEW ZEALAND</h2>
+            <h1>Choose National Park</h1>
+            <ul id="park-list">
+                
+                <li style="background-image: url(&quot;images/rakiura.jpg&quot;);"><p>Rakiura</p></li>
+                <li style="background-image: url(&quot;images/fiordland.jpg&quot;);"><p>Fiordland</p></li>
+                <li style="background-image: url(&quot;images/mount-aspiring.jpg&quot;);"><p>Mount Aspiring</p></li>
+                <li style="background-image: url(&quot;images/aoraki.jpg&quot;);"><p>Aoraki / Mount Cook</p>
+                </li>
+                <li style="background-image: url(&quot;images/westland-tai-poutini.jpg&quot;);"><p>Westland Tai Poutini</p></li>
+                <li style="background-image: url(&quot;images/arthurs-pass.jpg&quot;);"><p>Arthur's Pass</p></li>
+                <li style="background-image: url(&quot;images/paparoa.jpg&quot;);"><p>Paparoa</p></li>
+                <li style="background-image: url(&quot;images/nelson-lakes.jpg&quot;);"><p>Nelson Lakes</p></li>
+                <li style="background-image: url(&quot;images/kahurangi.jpg&quot;);"><p>Kahurangi</p></li>
+                <li style="background-image: url(&quot;images/abel-tasman.jpg&quot;);"><p>Abel Tasman</p>
+                </li>
+                <li style="background-image: url(&quot;images/egmont.jpg&quot;);"><p>Egmont</p></li>
+                <li style="background-image: url(&quot;images/whanganui.jpg&quot;);"><p>Whanganui</p></li>
+                <li style="background-image: url(&quot;images/tongariro.jpg&quot;);"><p>Tongariro</p></li></ul>
+            </ul>
         </div>
     </body>
-    <script type="text/javascript" src="./build/procedural-gl.js"></script>
-    <script type="text/javascript">
-        // Initialize the engine with a location and inject into page
-        const container = document.getElementById( 'container' );
-
-        // Define API Keys (replace these with your own!)
-        const NASADEM_APIKEY = '1f11dbce025744eda8b9aadd99c07d131';
-        const MAPTILER_APIKEY = 'BheLBu5XbQXIoBFzohw6';
-        if ( !NASADEM_APIKEY || !MAPTILER_APIKEY ) {
-          const error = Error( 'Modify index.html to include API keys' );
-          container.innerHTML = error; 
-          throw error;
-        }
-
-        const datasource = {
-          elevation: {
-            apiKey: NASADEM_APIKEY
-          },
-          imagery: {
-            apiKey: MAPTILER_APIKEY,
-            urlFormat: 'https://api.maptiler.com/tiles/satellite/{z}/{x}/{y}.jpg?key={apiKey}',
-            attribution: '<a href="https://www.maptiler.com/copyright/">Maptiler</a> <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          }
-        }
-        Procedural.init( { container, datasource } );
-        Procedural.setCameraModeControlVisible( true );
-        Procedural.setCompassVisible( true );
-        Procedural.setUserLocationControlVisible( true );
-        Procedural.setRotationControlVisible( true );
-        Procedural.setZoomControlVisible( true );
-
-        // Load random location
-        const latitude = 42 + 8 * Math.random();
-        const longitude = 6 + 8 * Math.random();
-        Procedural.displayLocation( {
-          latitude:latitude, longitude:longitude
-        } );
-    </script>
+    <script type="text/javascript" src="https://unpkg.com/procedural-gl/build/procedural-gl.js"></script>
+    <script type="text/javascript" src="new-zealand-3d.js"></script>
 </html>
+
+
